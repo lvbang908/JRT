@@ -120,9 +120,9 @@ registerFont(__dirname + `/tad/CaviarDreams.ttf`, {
     });
     ctx.textAlign = "start";
     ctx.font = "45px time";
-    ctx.fillText("@" + " Anh", 930, 540)
-    ctx.fillText("@" + " Yêu", 930, 610)
-    ctx.fillText("@" + " Em", 930, 690)
+    ctx.fillText("@" + "lvbangitmdg", 930, 540)
+    ctx.fillText("@" + "lvbang908", 930, 610)
+    ctx.fillText("fb.com/" + "l.v.bang205", 930, 690)
     ctx.restore();
     ctx.save();
     ctx.beginPath();
