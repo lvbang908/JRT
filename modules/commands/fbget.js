@@ -5,7 +5,7 @@ module.exports.config = {
     credits: "Zera",
     description: "Tải video hoặc ghi âm từ fb",
   commandCategory: "tiện ích",
-  usages: "fbget audio/video [link]",
+  usages: "audio/video [link]",
   cooldowns: 0
 };
 module.exports.run = async function ({api,event,args})  {
