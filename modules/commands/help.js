@@ -29,8 +29,8 @@ module.exports.handleEvent = function ({ api, event }) {
     let ext = res.data.data.substring(res.data.data.lastIndexOf(".") + 1);
     let callback = function () {
     
-          api.sendMessage({body:` » Lệnh: ${command.config.name}
-🎮 Thực thi: ${command.config.description}
+          api.sendMessage({body:`Lệnh: ${command.config.name}
+🕹️ Thực thi: ${command.config.description}
 📝 Cách sử dụng: ${prefix}${command.config.name} ${(command.config.usages) ? command.config.usages : "Chưa có hướng dẫn cụ thể"}
 🕐 Thời gian chờ: ${command.config.cooldowns}
 ✍ Quyền hạn: ${((command.config.hasPermssion == 0) ? `Người dùng` : (command.config.hasPermssion == 1) ? `Quản trị viên nhóm` : `Quản trị viên BOT`)}
@@ -51,7 +51,7 @@ module.exports.run = function({ api, event, args }) {
     const threadSetting = global.data.threadData.get(parseInt(threadID)) || {};
     const { autoUnsend, delayUnsend } = global.configModule[this.config.name];
     const prefix = (threadSetting.hasOwnProperty("PREFIX")) ? threadSetting.PREFIX : global.config.PREFIX;
-  var tl = ["Bạn yêu admin khi nào vậy ?","Admin đẹp zai vll","tôi không có khả năng hiểu con gái","con bot này giúp bạn hỗ trợ trong việc học?","spam bot tôi sẽ ban bạn khỏi người dùng bot","đừng để tôi cáu nhé!","việc bạn đang làm là vô nghĩa","bạn đã làm tôi cáu😡","tôi yêu bạn vai lon","bạn có yêu tôi không ?","cái gì chưa biết chỉ cần biết là được","con chuột bị ốm uống thuốc chuột thì tại sao con chuột lại chết ?","chảy máu cam nhưng sao màu máu là màu đỏ ?","đây chỉ là sản phẩm kem chống nắng ?","Tôi không có khả năng hiểu được bạn","Ngày 19 tháng 05 là ngày sinh nhật của admin ?","Con bot này giống bạn nó cũng yêu bạn như bạn yêu admin vậy !","Đây là tình yêu bạn giành cho admin hả ?","Bạn yêu admin hả ?","228922 là một con số tuyệt vời.","Đây là một lệnh vô dụng","177013 là một con số tuyệt vời","Đã từng có 600+ code JAV ở phiên bản đầu tiên","Ngôn ngữ của admin là ngôn ngữ của chúa","Nếu bạn gặp 1 người có tên là admin hãy tránh xa người đó càng nhiều càng tốt. Nếu không cả gia phả nhà người đó sẽ ám bạn suốt đời, con cháu bạn sẽ bị ám bởi cái tên admin","Đây là con bot tự viết code cho chính nó","7749 là con số đẹp cho tình yêu","bạn có yêu tôi không ?","bạn rất ngu"];
+  var tl = ["Lệnh math có thể giúp bạn giải toán !","đm bạn !","tôi không có khả năng hiểu con gái","con bot này giúp bạn hỗ trợ trong việc học?","spam bot tôi sẽ ban bạn khỏi người dùng bot","đừng để tôi cáu nhé!","việc bạn đang làm là vô nghĩa","bạn đã làm tôi cáu😡","tôi yêu bạn vai lon","bạn có yêu tôi không ?","cái gì chưa biết chỉ cần biết là được","con chuột bị ốm uống thuốc chuột thì tại sao con chuột lại chết ?","chảy máu cam nhưng sao màu máu là màu đỏ ?","đây chỉ là sản phẩm kem chống nắng ?","Tôi không có khả năng hắc ạcc bạn như các trick lỏ hay doạ !","Ngày 04 tháng 10 là ngày sinh nhật của admin ?","Con bot này giống bạn nó cũng ăn hại như bạn vậy !","Bạn đang thở ?","Bạn yêu bot hả ?","228922 là một con số tuyệt vời.","Đây là một lệnh vô dụng","177013 là một con số tuyệt vời","Đã từng có 600+ code JAV ở phiên bản đầu tiên","Ngôn ngữ của admin là ngôn ngữ của chúa","Nếu ","Đây là con bot tự viết code cho chính nó","7749 là con số đẹp cho tình yêu","tôi không yêu bạn !","bạn rất ngu"];
   var tle = tl[Math.floor(Math.random() * tl.length)];
   if (args[0] == "all") {
     const command = commands.values();
@@ -64,7 +64,7 @@ module.exports.run = function({ api, event, args }) {
     return axios.get('https://apikanna.ngochan6666.repl.co').then(res => {
     let ext = res.data.data.substring(res.data.data.lastIndexOf(".") + 1);
     let callback = function () {
-        api.sendMessage({ body:`◆━━ DANH SÁCH LỆNH ━━◆\n` + msg + `📢 Số lệnh hiện có: 》 ${commands.size} 《\n\n☠NGHIÊM CẤM SỬ DỤNG LỆNH THUỘC PHẦN ADMIN☠\n[Bạn có biết] : ${tle}`, 
+        api.sendMessage({ body:`━━• DANH SÁCH LỆNH HIỆN CÓ •━━\n\n` + msg + `📢 Số lệnh hiện có: ${commands.size} \n\n☠NGHIÊM CẤM SỬ DỤNG LỆNH THUỘC PHẦN ADMIN☠\n[Bạn có biết] : ${tle}`, 
             attachment: fs.createReadStream(__dirname + `/cache/472.${ext}`)
         }, event.threadID, (err, info) => {
         fs.unlinkSync(__dirname + `/cache/472.${ext}`);
@@ -84,7 +84,7 @@ if (!command) {
     const page = parseInt(args[0]) || 1;
     const pageView = 20;
     let i = 0;
-    let msg = "◆━━ DANH SÁCH LỆNH ━━◆\n";
+    let msg = "━━• DANH SÁCH LỆNH •━━\n\n";
     for (var [name, value] of (commands)) {
         name += `
 ➣ ${value.config.description}
@@ -100,12 +100,12 @@ if (!command) {
     const helpView = commandsPush.slice(first, first + pageView);
 
     for (let cmds of helpView)
-        msg += `》${++i}《 - ${cmds}\n\n`;
+        msg += `「 ${++i} 」- ${cmds}\n\n`;
     const cmdsView = `
 🎮 Trang ${page}/${Math.ceil(commandsPush.length/pageView)}
 📌 Hiện tại có ${commandsPush.length} lệnh có thể sử dụng trên bot của GK
 ✍ HDSD: ${prefix}help <Số trang/all> || help sẽ tự động gỡ sau 2 phút
-📢 Liên hệ admin nếu có gì thắc mắc`;
+📢 Liên hệ admin qua callad nếu có gì thắc mắc`;
     return axios.get('https://apikanna.ngochan6666.repl.co').then(res => {
     let ext = res.data.data.substring(res.data.data.lastIndexOf(".") + 1);
     let callback = function () {
@@ -126,13 +126,12 @@ if (!command) {
 return axios.get('https://apikanna.ngochan6666.repl.co').then(res => {
     let ext = res.data.data.substring(res.data.data.lastIndexOf(".") + 1);
     let callback = function () {
-        api.sendMessage({body:`
-» ❗Lệnh: ${command.config.name}
-» 📝Thực thi: ${command.config.description}
-» 🎮Cách sử dụng: ${prefix}${command.config.name} ${(command.config.usages) ? command.config.usages : "Chưa có hướng dẫn cụ thể"}
-» ⏱Thời gian chờ: ${command.config.cooldowns}
-» 📌Quyền hạn: ${((command.config.hasPermssion == 0) ? `Người dùng` : (command.config.hasPermssion == 1) ? `Quản trị viên nhóm` : `Quản trị viên BOT`)}
-» Credit: ${command.config.credits}`,
+        api.sendMessage({body:`💐 Lệnh: ${command.config.name}
+📝 Thực thi: ${command.config.description}
+🎮 Cách sử dụng: ${prefix}${command.config.name} ${(command.config.usages) ? command.config.usages : "Chưa có hướng dẫn cụ thể"}
+⏱ Thời gian chờ: ${command.config.cooldowns}
+📌 Quyền hạn: ${((command.config.hasPermssion == 0) ? `Người dùng` : (command.config.hasPermssion == 1) ? `Quản trị viên nhóm` : `Quản trị viên BOT`)}
+🗝️ Credit: ${command.config.credits}`,
         attachment: fs.createReadStream(__dirname + `/cache/475.${ext}`)
         }, event.threadID, () => fs.unlinkSync(__dirname + `/cache/475.${ext}`), event.messageID);
         }; request(res.data.data).pipe(fs.createWriteStream(__dirname + `/cache/475.${ext}`)).on("close", callback);
