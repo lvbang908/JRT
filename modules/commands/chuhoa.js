@@ -4,7 +4,7 @@ module.exports.config = {
  hasPermssion: 0,
  credits: "Bảo Luân",
  description: "Viết chữ tiếng Việt bằng tiếng Trung theo kiểu ảnh :v",
- commandCategory: "Edit-IMG",
+ commandCategory: "Chỉnh sửa ảnh",
  usages: "[0 -> 7] | [ 1 -> 3 ] | [Text] | [Text 2] (Tuy vào type nhé)",
  cooldowns: 5
 };
