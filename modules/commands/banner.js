@@ -2,8 +2,8 @@ module.exports.config = {
   name: "banner",
   version: "1.0.0",
   hasPermssion: 0,
-  credits: "Hanaku UwuU",
-  description: "Tạo banner anime",
+  credits: "LVBang",
+  description: "Tạo banner anime đó",
   commandCategory: "Tạo ảnh",
   usages: "",
   cooldowns: 5
@@ -22,7 +22,7 @@ module.exports.run = async function({ api, args, event, permssion }) {
     return api.sendMessage(msg, event.threadID, event.messageID)
   }
   if(!args[0]){
-  const abcxyz = ["https://imgur.com/7AiLKO5.png","https://imgur.com/6we7T1g.png","https://imgur.com/W1TNnj9.png","https://imgur.com/qZAh20x.png"]
+  const abcxyz = ["https://i.imgur.com/Cmbdp8x.png","https://i.imgur.com/PNWOcuz.png","https://i.imgur.com/d1v5k4M.png","https://i.imgur.com/l3k4gng.png"]
   let o = [];
   for(let i = 0; i < 4; i++){
     const t = (await axios.get(`${abcxyz[i]}`, {
@@ -31,7 +31,7 @@ module.exports.run = async function({ api, args, event, permssion }) {
     o.push(t)
   }
   const msg = ({
-    body: "Reply Tin Nhắn Để Chọn Kiểu ( Theo Thứ Tự 1 - 2 - 3 - 4 )",
+    body: "Reply Tin Nhắn Để Chọn Kiểu ( Bằng số theo Thứ Tự 1 - 2 - 3 - 4 )",
     attachment: o
   })
   return api.sendMessage(msg, event.threadID, (err, info) => {
