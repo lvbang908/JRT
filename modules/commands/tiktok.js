@@ -11,7 +11,7 @@ module.exports.config = {
   
 module.exports.run = async function({ args,event,	api }) {
   const axios = require("axios");
-  const res = (await axios.get(`http://api.leanhtruong.net/api-no-key/tiksearch?keyword=${args.join(" ")}`)).data
+  const res = (await axios.get(`https://www.nguyenmanh.name.vn/api/tikDL?url=${args.join(" ")}&apikey=J3I7mnXa`)).data
   var t = [],
      o = [],
     z = [],
