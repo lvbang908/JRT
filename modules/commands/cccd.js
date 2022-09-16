@@ -1,5 +1,5 @@
 module.exports.config = {
-	name: "cccd",	
+	name: "cccd2",	
 	version: "1.1.1", 
 	hasPermssion: 0,
 	credits: "DVB",
