@@ -4,7 +4,7 @@ module.exports.config = {
   hasPermssion: 1,
   credits: "Thọ, ManhG Fix Ver > 1.2.13",
   description: "Xem lại tin nhắn bị gỡ",
-  commandCategory: "Box Chat",
+  commandCategory: "Box",
   usages: "",
   cooldowns: 0,
   hide: true,
@@ -37,11 +37,11 @@ module.exports.handleEvent = async function ({ event, api, client, Users }) {
     var getMsg = global.logMessage.get(messageID);
     if (!getMsg) return;
     let name = await Users.getNameUser(senderID);
-    if (getMsg.attachment[0] == undefined) return api.sendMessage(`📛 ${name} 𝐁𝐚̣𝐧 𝐧𝐠𝐡𝐢̃ 𝐭𝐚𝐲 𝐛𝐚̣𝐧 𝐧𝐡𝐚𝐧𝐡 𝐡𝐨̛𝐧 𝐦𝐢̀𝐧𝐡 𝐡𝐨𝐧𝐠 :)\n𝐍𝐡𝐚̆́𝐦 𝐧𝐡𝐚𝐧𝐡 𝐡𝐨̛𝐧 𝐛𝐨𝐭 𝐭𝐡𝐢̀ 𝐡𝐚̃𝐲 𝐠𝐨̛̃ 𝐧𝐡𝐞́\n\n👻──── •💜• ────👻\n\n 𝐍𝐨̣̂𝐢 𝐃𝐮𝐧𝐠: ${getMsg.msgBody}\n\n👻──── •💜• ────👻\n𝑵𝒐̛𝒊 𝑵𝒂̀𝒐 𝑲𝒉𝒐́ 𝑵𝒐̛𝒊 𝑨̂́𝒚 𝑪𝒐́ 𝑩𝒐𝒕`, threadID)
+    if (getMsg.attachment[0] == undefined) return api.sendMessage(`${name} vừa gỡ 1 tin nhắn\nNội dung: ${getMsg.msgBody}`, threadID)
     else {
       let num = 0
       let msg = {
-        body: `🔰 ${name} 𝗩𝘂̛̀𝗮 𝗚𝗼̛̃ ${getMsg.attachment.length} 𝗧𝗲̣̂𝗽 𝗚𝗮̆́𝗻 𝗞𝗲̀𝗺.\n👻──── •💜• ────👻\n𝑵𝒐̛𝒊 𝑵𝒂̀𝒐 𝑲𝒉𝒐́ 𝑵𝒐̛𝒊 𝑨̂́𝒚 𝑪𝒐́ 𝑩𝒐𝒕\n${(getMsg.msgBody != "") ? `\n\n𝐍𝐨̣̂𝐢 𝐃𝐮𝐧𝐠: ${getMsg.msgBody}` : ""}`,
+        body: `${name} vừa gỡ 1 tin nhắn ${getMsg.attachment.length}\n${(getMsg.msgBody != "") ? `\nNội dung: ${getMsg.msgBody}` : ""}`,
         attachment: [],
         mentions: { tag: name, id: senderID }
       }
@@ -62,9 +62,9 @@ module.exports.handleEvent = async function ({ event, api, client, Users }) {
 
 module.exports.languages = {
   "vi": {
-    "on": "𝗕𝗮̣̂𝘁",
-    "off": "𝗧𝗮̆́𝘁",
-    "successText": "𝗿𝗲𝘀𝗲𝗻𝗱 𝘁𝗵𝗮̀𝗻𝗵 𝗰𝗼̂𝗻𝗴 💖",
+    "on": "Bật",
+    "off": "Tắt",
+    "successText": "resend thành công",
   },
   "en": {
     "on": "on",
