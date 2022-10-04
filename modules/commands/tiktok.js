@@ -1,5 +1,5 @@
 module.exports.config = {
-	name: "tiktok",
+	name: "tiktok3",
 	version: "1.0.0",
 	hasPermssion: 0,
 	credits: "Hankune",
@@ -11,7 +11,7 @@ module.exports.config = {
   
 module.exports.run = async function({ args,event,	api }) {
   const axios = require("axios");
-  const res = (await axios.get(`http://api.leanhtruong.net/api-no-key/tiksearch?keyword=${args.join(" ")}`)).data
+  const res = (await axios.get(`https://api-caochungdat.bokdepzai.repl.co/tiktok/search?keywords=${args.join(" ")}`)).data
   var t = [],
      o = [],
     z = [],
@@ -19,16 +19,16 @@ module.exports.run = async function({ args,event,	api }) {
     k = [],
    msg = "";
   for(let i = 0; i < 10; i++){
-  	msg += (`[ ${i + 1} ]\n - [ ${res.result[i].title} ]\n - [ ${res.result[i].nickname} ]\n\n`)
-    o.push(res.result[i].nowatermark)
-    z.push(res.result[i].music.download)
-    p.push(res.result[i].music.author)
-    k.push(`[ ${i} ] - [ ${res.result[i].title} ] - [ ${res.result[i].nickname} ]`)
+  	msg += (`[ ${i + 1} ]\n - [ ${data.videos.title} ]\n - [ ${data.author.nickname} ]\n\n`)
+    o.push(data.videos.play)
+    z.push(data.music_info.play)
+    p.push(data.author.unique_id)
+    k.push(`[ ${i} ] - [ ${data.videos.title} ] - [ ${data.author.nickname} ]`)
   }
   return api.sendMessage(msg, event.threadID, (error, info) => {
         global.client.handleReply.push({
             step: 1,
-            name: "tiktok",
+            name: "tiktok3",
             author: event.senderID,
             messageID: info.messageID,
             video: o,
